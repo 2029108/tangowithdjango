@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+
+STATIC_PATH = os.path.join(BASE_DIR,'static')
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -24,7 +31,10 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+# C:/Users/Greg/code/tango_with_django_project/templates
+TEMPLATE_DIRS = [TEMPLATE_PATH]
+
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -82,3 +92,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
