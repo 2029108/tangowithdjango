@@ -1,0 +1,42 @@
+{% extends "rango/base.html" %}
+
+{% block title %}Profile Registration{% endblock %}
+
+{% block body_block %}
+
+<div class="page-header">
+    <h1>Profile Registration for Rango</h1>
+</div>
+
+<form role="form"  method="post" action=".">
+    {% csrf_token %}
+
+    <div>
+        {% if profile_form.errors %}
+            <div class="alert alert-warning" role="alert">
+                {% if profile_form.errors.items|length == 1 %}
+                    Please correct the error below.
+                {% else %}
+                    Please correct the errors below.
+                {% endif %}
+            </div>
+        {% endif %}
+
+
+
+        <h2 class="form-signin-heading" role="alert">Fill in your Details</h2>
+
+        <div class="form-group" >
+            <p class="required"> <label for="id_website">Website:</label>
+                <input class="form-control"  id="id_website" maxlength="40" name="website" type="url"  placeholder="Enter website"/></p>
+        </div>
+        <div class="form-group">
+            <p class="required"><label for="id_picture">Profile Picture:</label>
+                <input class="form-control" id="id_picture" name="picture" type="file" placeholder="Enter picture" /></p>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

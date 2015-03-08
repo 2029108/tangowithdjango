@@ -1,0 +1,34 @@
+{% extends "rango/base.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block body_block %}
+    <div class="page-header">
+        <h1>Users</h1>
+    </div>
+
+    <div class="row profiles">
+        <div class="col-md-12">
+        {% for user, u in users %}
+
+            <div class="media" style="margin-bottom:30px;">
+                <div class="media-left">
+                    <a href="/rango/profile/{{ u.user }}/">
+                        <img class="media-object" src="/media/{{ u.picture }}" style="width: 100px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading">{{ u.user }}</h3>
+                    <div class="btn-group btn-group-sm" style="/*margin-top: 70px*/">
+                        <a href="/rango/profile/{{ u.user }}/" class="btn btn-default"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> View Profile</a>
+                        <a href="{{ u.website }}" class="btn btn-default" target="_blank"> Visit on the Web</a>
+                    </div>
+                    <p>Email: <a href="{{ u.email }}">{{ u.user.email }}</a></p>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

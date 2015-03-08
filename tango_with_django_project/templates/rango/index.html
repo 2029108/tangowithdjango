@@ -51,5 +51,7 @@
             </div>
 
          </div>
-    <p>Visits: {{ visits }}</p>
+    {% if user.is_authenticated %}
+        <p>Visits: {{ visits }}</p>
+    {% endif %}
 {% endblock %}

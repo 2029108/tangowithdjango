@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %}{{ category_name }}{% endblock %}
+{% block title %}Add Page{% endblock %}
 
 {% block body_block %}
 
@@ -22,7 +22,7 @@
             {% endfor %}
 
         <br/>
-        <button class="btn btn-primary" type="submit" name="submit">Add Page</button>
+        <button class="btn btn-primary" type="submit" name="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Page</button>
     </form>
     {%  else %}
         <p>This is category does not exist.</p>
